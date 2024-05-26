@@ -45,6 +45,7 @@
 
     body {
       font-size: calc(1rem * var(--bfso, 1));
+      background-color: #000000;
     }
 
     body,
@@ -93,6 +94,13 @@
       top: 0;
       bottom: 0;
       z-index: -1;
+      background-color: #000000;
+      transition: opacity 2s ease-in-out;
+      opacity: 0.3;
+    }
+
+    #background-video.fade-out {
+      opacity: 0;
     }
 
     @font-face {
@@ -2177,7 +2185,49 @@
 </head>
 
 <body>
-  <video id="background-video" src="videos/b67c05aa539295a469dd159b93c25750.mp4" playsinline="" preload="none" autoplay loop muted ></video>
+  <video id="background-video" src="videos/b67c05aa539295a469dd159b93c25750.mp4" playsinline="" preload="none" autoplay
+    muted></video>
+
+  <script>
+    sources = ['videos/03eb8bbff5fb6b7188b5dccbc111318b.mp4',
+      'videos/1af463a75a412b07b0e3588fb3526c54.mp4',
+      'videos/bbab9f84ebfb1e2ba8cb85cac1bfbace.mp4',
+      'videos/dd38614a3527d7299bd7956e8c921898.mp4',
+      'videos/b67c05aa539295a469dd159b93c25750.mp4'];
+
+    let currentIndex = 0;
+    const video = document.querySelector("#background-video");
+
+
+    video.addEventListener('ended', (event) => {
+      video.classList.add('fade-out');
+
+      setTimeout(() => {
+        // Update to the next video source
+        currentIndex = (currentIndex + 1) % sources.length;
+        console.log(currentIndex);
+        console.log(sources[currentIndex]);
+        video.src = sources[currentIndex];
+
+        if (typeof video.loop == 'boolean') {
+          video.loop = true;
+        }
+
+        video.play();
+        video.classList.remove('fade-out');
+
+        // // Wait for the video to load before playing
+        // video.addEventListener('canplay', () => {
+        //   console.log('canplay');
+        //   // Start playing the new video
+        //   video.play();
+        //   // Remove fade-out class to fade in
+        //   video.classList.remove('fade-out');
+        // }, { once: true });
+
+      }, 1000); // Match this to the CSS transition duration
+    });
+  </script>
 
   <div id="root"><a id="page-1" aria-hidden="true" style="visibility:hidden;"></a>
     <section id="LpJMlWEyvTY3SvAM"
