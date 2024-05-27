@@ -8,12 +8,11 @@
   <title>Night Pop</title>
   <meta name="description"
     content="Experience the magic of winter evenings with Night Pop, your alternative space to enjoy the night without spending money or consuming alcohol." />
-  <link rel="preload" href="fonts/montserrat-v26-latin-regular.woff2" as="font" type="font/woff2"
-    crossorigin="anonymous">
-  <link rel="preload" href="fonts/montserrat-v26-latin-700.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-  <link rel="preload" href="fonts/eb-garamond-v27-latin-regular.woff2" as="font" type="font/woff2"
-    crossorigin="anonymous">
-  <link rel="preload" href="fonts/eb-garamond-v27-latin-500.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <!-- <link rel="preload" href="fonts/montserrat-v26-latin-regular.woff2" as="font" type="font/woff2"> -->
+  <link rel="preload" href="poster.jpg" as="image" type="image/jpeg" />
+  <link rel="preload" href="fonts/montserrat-v26-latin-700.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+  <link rel="preload" href="fonts/eb-garamond-v27-latin-regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+  <!-- <link rel="preload" href="fonts/eb-garamond-v27-latin-500.woff2" as="font" type="font/woff2"> -->
 
 
   <link rel="icon" href="26387fa4f5b1e3f7b6217b27d79bf264.png" type="image/png" sizes="16x16">
@@ -31,48 +30,36 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <style>
-    /* montserrat-regular - latin */
     @font-face {
       font-display: swap;
-      /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
       font-family: 'Montserrat';
       font-style: normal;
       font-weight: 400;
       src: url('fonts/montserrat-v26-latin-regular.woff2') format('woff2');
-      /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
     }
 
-    /* montserrat-700 - latin */
     @font-face {
       font-display: swap;
-      /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
       font-family: 'Montserrat';
       font-style: normal;
       font-weight: 700;
       src: url('fonts/montserrat-v26-latin-700.woff2') format('woff2');
-      /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
     }
 
-    /* eb-garamond-regular - latin */
     @font-face {
       font-display: swap;
-      /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
       font-family: 'EB Garamond';
       font-style: normal;
       font-weight: 400;
       src: url('fonts/eb-garamond-v27-latin-regular.woff2') format('woff2');
-      /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
     }
 
-    /* eb-garamond-500 - latin */
     @font-face {
       font-display: swap;
-      /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
       font-family: 'EB Garamond';
       font-style: normal;
       font-weight: 500;
       src: url('fonts/eb-garamond-v27-latin-500.woff2') format('woff2');
-      /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
     }
   </style>
   <style>
@@ -165,7 +152,7 @@
       -webkit-touch-callout: none;
     }
 
-    #background-video {
+    #background-item {
       width: 100vw;
       height: 100vh;
       object-fit: cover;
@@ -180,7 +167,8 @@
       opacity: 0.3;
     }
 
-    #background-video.fade-out {
+
+    #background-item.fade-out {
       opacity: 0;
     }
 
@@ -264,59 +252,101 @@
 </head>
 
 <body>
-  <p>
-    <video id="background-video" src="videos/b67c05aa539295a469dd159b93c25750.webm" playsinline preload="none" autoplay poster="poster.jpg" muted>
-    </video>
-  </p>
+  <div id="background-container">
+    <img src="poster.jpg" id="background-item" alt="Night Pop">
+  </div>
 
   <script>
-    sources = [
+    const sources = [
       'videos/b67c05aa539295a469dd159b93c25750',
       'videos/1af463a75a412b07b0e3588fb3526c54',
       'videos/dd38614a3527d7299bd7956e8c921898',
     ];
 
     let currentIndex = 0;
-    const video = document.querySelector("#background-video");
-    const suffix = video.canPlayType('video/webm') ? '.webm' : '.mp4';
 
-    video.loop = false;
-    video.controls = false;
 
-    function playNext(video) {
+    const isIOS = () => {
+      return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    };
+
+    const isSafari = () => {
+      return /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    }
+
+    const isApple = () => {
+      return isSafari() || isIOS();
+    };
+
+    const isLowPowerMode = () => {
+      return navigator.getBattery && navigator.getBattery().then((battery) => {
+        return battery.charging === false;
+      });
+    };
+
+    const playNext = (video) => {
+      const suffix = video.canPlayType('video/webm') ? '.webm' : '.mp4';
+
       video.ontimeupdate = (event) => {
         if (event.target.currentTime > event.target.duration - 2) {
           event.target.classList.add('fade-out');
         }
       };
 
+      video.onended = (event) => {
+        currentIndex = currentIndex + 1;
+        if (currentIndex >= sources.length) {
+          currentIndex = 0;
+        }
+
+        const video = event.target;
+
+        setTimeout(() => {
+          video.classList.remove('fade-out');
+          playNext(video);
+
+        }, 1000);
+      };
+
       video.src = sources[currentIndex] + suffix;
-      currentIndex = (currentIndex + 1) % sources.length;
-      video.load();
+      // video.load();
     }
 
-    video.addEventListener('ended', (event) => {
-      const video = event.target;
+    const renderSimpleBackground = () => {
+      const container = document.getElementById('background-container');
+      container.innerHTML = '<img src="poster.jpg" id="background-item" alt="Night Pop">'
+    };
 
-      setTimeout(() => {
-        video.classList.remove('fade-out');
-        playNext(video);
+    const renderVideoBackground = () => {
+      const container = document.getElementById('background-container');
+      container.innerHTML = '<video id="background-item" src="videos/b67c05aa539295a469dd159b93c25750.webm" playsinline autoplay poster="poster.jpg" muted></video>';
+      const video = document.getElementById('background-item');
 
-      }, 1000);
-    });
+      video.loop = false;
+      video.controls = false;
 
-    playNext(video);
-    video.play().catch((e) => {
-      if (e.name === "NotAllowedError") {
-        img = document.createElement('img');
-        img.src = '/poster.jpg';
-        img.id = 'background-video';
-        img.style = video.style;
-        video.parentElement.appendChild(img);
 
-        video.remove();
+      playNext(video);
+
+      video.play().catch((e) => {
+        if (e.name === "NotAllowedError") {
+          renderSimpleBackground();
+        }
+      });
+    };
+
+    const renderBackground = () => {
+      if (isApple() && isLowPowerMode()) {
+        // renderSimpleBackground();
+      } else {
+        renderVideoBackground();
       }
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderBackground();
     });
+
   </script>
 
 
