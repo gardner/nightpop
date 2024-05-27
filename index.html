@@ -8,10 +8,14 @@
   <title>Night Pop</title>
   <meta name="description"
     content="Experience the magic of winter evenings with Night Pop, your alternative space to enjoy the night without spending money or consuming alcohol." />
-  <link rel="preload" href="fonts/8083e99b9be180966319671b1774cb04.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="fonts/gardner/9e22e3ba40b6b9bbaccbe43485f652dd.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="fonts/fira-sans-v17-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="fonts/d02a0ab1ff493e6e60c37f9fb8d85484.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" as="style"
+    onload="this.rel='stylesheet'">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&display=swap" as="style"
+    onload="this.rel='stylesheet'">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=EB+Garamond:wght@400;500&display=swap"
+    rel="stylesheet">
+
   <link rel="icon" href="26387fa4f5b1e3f7b6217b27d79bf264.png" type="image/png" sizes="16x16">
   <link rel="icon" href="2d0b56e7e51cf11036ad8734bdb67e2d.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="725b756a69a7d4c235070e51acd85560.png" sizes="180x180">
@@ -27,140 +31,37 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <style>
-    /* fira-sans-regular - latin */
     @font-face {
-      font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-      font-family: 'Fira Sans';
+      font-family: 'Montserrat';
       font-style: normal;
       font-weight: 400;
-      src: url('fonts/fira-sans-v17-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-    }
-    @font-face {
-      font-family: "Garamond";
-      src: url(fonts/8083e99b9be180966319671b1774cb04.woff2);
-      font-style: normal;
-      font-weight: 400;
+      font-display: swap;
+      src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
     }
 
     @font-face {
-      font-family: "Garamond";
-      src: url(fonts/d02a0ab1ff493e6e60c37f9fb8d85484.woff2);
+      font-family: 'Montserrat';
       font-style: normal;
       font-weight: 700;
+      font-display: swap;
+      src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
     }
 
     @font-face {
-      font-family: "Garamond";
-      src: url(fonts/8c121a34419b7c2d0c00540549892a71.woff2);
-      font-style: italic;
+      font-family: 'EB Garamond';
+      font-style: normal;
       font-weight: 400;
+      font-display: swap;
+      src: url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400&display=swap');
     }
 
     @font-face {
-      font-family: "Garamond";
-      src: url(fonts/aaa123a775c082198b0508d0aa3746bd.woff2);
-      font-style: italic;
-      font-weight: 700;
-    }
-
-    @font-face {
-      font-family: "Garamond";
-      src: url(fonts/8083e99b9be180966319671b1774cb04.woff2);
-      font-style: normal;
-      font-weight: 100;
-    }
-
-    @font-face {
-      font-family: "Garamond";
-      src: url(fonts/8c121a34419b7c2d0c00540549892a71.woff2);
-      font-style: italic;
-      font-weight: 100;
-    }
-
-    @font-face {
-      font-family: "Garamond";
-      src: url(fonts/8083e99b9be180966319671b1774cb04.woff2);
-      font-style: normal;
-      font-weight: 200;
-    }
-
-    @font-face {
-      font-family: "Garamond";
-      src: url(fonts/8c121a34419b7c2d0c00540549892a71.woff2);
-      font-style: italic;
-      font-weight: 200;
-    }
-
-    @font-face {
-      font-family: "Garamond";
-      src: url(fonts/8083e99b9be180966319671b1774cb04.woff2);
-      font-style: normal;
-      font-weight: 300;
-    }
-
-    @font-face {
-      font-family: "Garamond";
-      src: url(fonts/8c121a34419b7c2d0c00540549892a71.woff2);
-      font-style: italic;
-      font-weight: 300;
-    }
-
-    @font-face {
-      font-family: "Garamond";
-      src: url(fonts/8083e99b9be180966319671b1774cb04.woff2);
+      font-family: 'EB Garamond';
       font-style: normal;
       font-weight: 500;
+      font-display: swap;
+      src: url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&display=swap');
     }
-
-    @font-face {
-      font-family: "Garamond";
-      src: url(fonts/8c121a34419b7c2d0c00540549892a71.woff2);
-      font-style: italic;
-      font-weight: 500;
-    }
-
-    @font-face {
-      font-family: "Garamond";
-      src: url(fonts/d02a0ab1ff493e6e60c37f9fb8d85484.woff2);
-      font-style: normal;
-      font-weight: 600;
-    }
-
-    @font-face {
-      font-family: "Garamond";
-      src: url(fonts/aaa123a775c082198b0508d0aa3746bd.woff2);
-      font-style: italic;
-      font-weight: 600;
-    }
-
-    @font-face {
-      font-family: "Garamond";
-      src: url(fonts/d02a0ab1ff493e6e60c37f9fb8d85484.woff2);
-      font-style: normal;
-      font-weight: 800;
-    }
-
-    @font-face {
-      font-family: "Garamond";
-      src: url(fonts/aaa123a775c082198b0508d0aa3746bd.woff2);
-      font-style: italic;
-      font-weight: 800;
-    }
-
-    @font-face {
-      font-family: "Garamond";
-      src: url(fonts/d02a0ab1ff493e6e60c37f9fb8d85484.woff2);
-      font-style: normal;
-      font-weight: 900;
-    }
-
-    @font-face {
-      font-family: "Garamond";
-      src: url(fonts/aaa123a775c082198b0508d0aa3746bd.woff2);
-      font-style: italic;
-      font-weight: 900;
-    }
-
   </style>
   <style>
     :root {
@@ -185,21 +86,34 @@
       background-color: #000000;
       color: #F5F6FB;
       font-size: x-large;
-      font-family: "Garamond";
       max-width: 90vw;
 
+    }
+
+    body {
+      font-family: 'EB Garamond', serif;
+      font-weight: 400;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
     }
 
     h1 {
       font-size: 4em;
     }
 
-    h2, a {
-      /* font-size: 2em; */
-      font-family: "Fira Sans";
-    }
-
     a {
+      font-family: 'Montserrat', sans-serif;
       font-size: 0.8em;
     }
 
@@ -258,16 +172,6 @@
       opacity: 0;
     }
 
-    @font-face {
-      font-family: "Gardner Sans Mammoth";
-      src: url("fonts/gardner/9e22e3ba40b6b9bbaccbe43485f652dd.eot");
-      src: url("fonts/gardner/9e22e3ba40b6b9bbaccbe43485f652dd.eot?#iefix")format("embedded-opentype"),
-        url("fonts/gardner/9e22e3ba40b6b9bbaccbe43485f652dd.woff2")format("woff2"),
-        url("fonts/gardner/9e22e3ba40b6b9bbaccbe43485f652dd.woff")format("woff"),
-        url("fonts/gardner/9e22e3ba40b6b9bbaccbe43485f652dd.ttf")format("truetype"),
-        url("fonts/gardner/9e22e3ba40b6b9bbaccbe43485f652dd.svg#Gardner Sans Mammoth")format("svg");
-    }
-
     .logo-text {
       color: #ffffff;
       font-family: "Gardner Sans Mammoth";
@@ -297,26 +201,30 @@
       margin-right: 15vw;
     }
 
-
-    @media (max-width: 375px) {
-      /* small */
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      padding: 10px;
     }
 
-    @media (min-width: 375.05px) and (max-width: 480px) {
-      /* medium */
-
-    }
-
-    @media (min-width: 480.05px) and (max-width: 768px) {
-      /* medium-large */
+    .grid-item {
+      border-top: 1px solid #333;
+      padding: 20px;
+      text-align: left;
     }
 
     @media (min-width: 768.05px) and (max-width: 1024px) {
-      /* large */
+      .grid-container {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     @media (min-width: 1024.05px) {
-      /* extra-large */
+      .grid-container {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
     }
 
     .shimmering {
@@ -351,8 +259,6 @@
     sources = [
       'videos/b67c05aa539295a469dd159b93c25750',
       'videos/1af463a75a412b07b0e3588fb3526c54',
-      // 'videos/03eb8bbff5fb6b7188b5dccbc111318b',
-      // 'videos/bbab9f84ebfb1e2ba8cb85cac1bfbace',
       'videos/dd38614a3527d7299bd7956e8c921898',
     ];
 
@@ -365,31 +271,23 @@
     function playNext(video) {
       video.ontimeupdate = (event) => {
         if (event.target.currentTime > event.target.duration - 2) {
-          // console.log('timeupdate', event.target.currentTime, event.target.duration);
           event.target.classList.add('fade-out');
         }
       };
 
-      video.onpause = (event) => {
-        // console.log('pause', event.target);
-        // playNext(event.target);
-      };
-
       video.src = sources[currentIndex] + suffix;
-      // console.log('loading', video.src);
       currentIndex = (currentIndex + 1) % sources.length;
       video.load();
     }
 
     video.addEventListener('ended', (event) => {
-      // console.log('ended', event.target);
       const video = event.target;
 
       setTimeout(() => {
         video.classList.remove('fade-out');
         playNext(video);
 
-      }, 1000); // Match this to the CSS transition duration
+      }, 1000);
     });
 
     playNext(video);
@@ -431,36 +329,36 @@
   <hr /><br />
   <section>
     <h2>Join Us</h2>
-    <ul>
-      <li>
+    <div class="grid-container">
+      <div class="grid-item">
         <b>Bring a Cup:</b>
         <p>In the spirit of sustainability, we offer free hot chocolate, but there’s a catch—bring your own cup. It’s a
           small step towards reducing waste and a gentle reminder of the value in the little things.</p>
-      </li>
-      <li>
+      </div>
+      <div class="grid-item">
         <b>Bring a Seat:</b>
         <p>We have a few chairs, but we encourage you to bring your own for added comfort. This is your space to relax
           and unwind.</p>
-      </li>
-      <li>
+      </div>
+      <div class="grid-item">
         <b>Bring a Gift:</b>
         <p>Bring those things that you make and give them to strangers.</p>
-      </li>
-      <li>
+      </div>
+      <div class="grid-item">
         <b>Bring Art:</b>
         <p>Bring some blinky lights or do some performance art.</p>
-      </li>
-      <li>
+      </div>
+      <div class="grid-item">
         <b>Music, Unplugged:</b>
         <p>Our soundscape is created by local musicians with unamplified instruments. The result is a soothing, organic
           sound that perfectly complements the calm atmosphere.</p>
-      </li>
-      <li>
+      </div>
+      <div class="grid-item">
         <b>Stay Informed:</b>
         <p>Night Pop is a nomadic experience. Each week, we pop up in a different location. Follow us on Instagram for
           updates and discover where we&#x27;ll be next.</p>
-      </li>
-    </ul>
+      </div>
+    </div>
   </section>
   <br />
   <hr /><br />

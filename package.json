@@ -5,7 +5,7 @@
   "source": "index.html",
   "scripts": {
     "start": "parcel",
-    "build": "parcel build --no-content-hash && rsync -av ./videos ./dist/"
+    "build": "parcel build --no-content-hash && cp -a ./videos ./dist/"
   },
   "author": "Gardner Bickford <hello@nightpop.nz>",
   "license": "ISC",
