@@ -8,10 +8,12 @@
   <title>Night Pop</title>
   <meta name="description"
     content="Experience the magic of winter evenings with Night Pop, your alternative space to enjoy the night without spending money or consuming alcohol." />
-    <link rel="preload" href="fonts/montserrat-v26-latin-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" href="fonts/montserrat-v26-latin-700.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" href="fonts/eb-garamond-v27-latin-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" href="fonts/eb-garamond-v27-latin-500.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="fonts/montserrat-v26-latin-regular.woff2" as="font" type="font/woff2"
+    crossorigin="anonymous">
+  <link rel="preload" href="fonts/montserrat-v26-latin-700.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="fonts/eb-garamond-v27-latin-regular.woff2" as="font" type="font/woff2"
+    crossorigin="anonymous">
+  <link rel="preload" href="fonts/eb-garamond-v27-latin-500.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 
 
   <link rel="icon" href="26387fa4f5b1e3f7b6217b27d79bf264.png" type="image/png" sizes="16x16">
@@ -29,39 +31,49 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <style>
-/* montserrat-regular - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400;
-  src: url('fonts/montserrat-v26-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-/* montserrat-700 - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 700;
-  src: url('fonts/montserrat-v26-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
+    /* montserrat-regular - latin */
+    @font-face {
+      font-display: swap;
+      /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 400;
+      src: url('fonts/montserrat-v26-latin-regular.woff2') format('woff2');
+      /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
 
-/* eb-garamond-regular - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'EB Garamond';
-  font-style: normal;
-  font-weight: 400;
-  src: url('fonts/eb-garamond-v27-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-/* eb-garamond-500 - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'EB Garamond';
-  font-style: normal;
-  font-weight: 500;
-  src: url('fonts/eb-garamond-v27-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
+    /* montserrat-700 - latin */
+    @font-face {
+      font-display: swap;
+      /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 700;
+      src: url('fonts/montserrat-v26-latin-700.woff2') format('woff2');
+      /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+
+    /* eb-garamond-regular - latin */
+    @font-face {
+      font-display: swap;
+      /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+      font-family: 'EB Garamond';
+      font-style: normal;
+      font-weight: 400;
+      src: url('fonts/eb-garamond-v27-latin-regular.woff2') format('woff2');
+      /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+
+    /* eb-garamond-500 - latin */
+    @font-face {
+      font-display: swap;
+      /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+      font-family: 'EB Garamond';
+      font-style: normal;
+      font-weight: 500;
+      src: url('fonts/eb-garamond-v27-latin-500.woff2') format('woff2');
+      /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
   </style>
   <style>
     :root {
@@ -252,8 +264,10 @@
 </head>
 
 <body>
-  <video id="background-video" playsinline="" preload="none" autoplay poster="poster.jpg" muted>
-  </video>
+  <p>
+    <video id="background-video" src="videos/b67c05aa539295a469dd159b93c25750.webm" playsinline="" preload="none" autoplay poster="poster.jpg" muted>
+    </video>
+  </p>
 
   <script>
     sources = [
@@ -346,7 +360,7 @@
       </div>
       <div class="grid-item">
         <b>Bring Art:</b>
-        <p>Bring some blinky lights, or lawn game, or do some performance art.</p>
+        <p>Bring some blinky lights, or a lawn game, or do some performance art.</p>
       </div>
       <!-- <div class="grid-item">
         <b>Music, Unplugged:</b>
