@@ -1,0 +1,15 @@
+{
+  "name": "nightpop",
+  "version": "1.0.0",
+  "description": "The website for nightpop.nz",
+  "source": "index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "author": "Gardner Bickford <hello@nightpop.nz>",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
+}
