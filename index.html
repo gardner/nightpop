@@ -265,7 +265,7 @@
 
 <body>
   <p>
-    <video id="background-video" src="videos/b67c05aa539295a469dd159b93c25750.webm" playsinline="" preload="none" autoplay poster="poster.jpg" muted>
+    <video id="background-video" src="videos/b67c05aa539295a469dd159b93c25750.webm" playsinline preload="none" autoplay poster="poster.jpg" muted>
     </video>
   </p>
 
@@ -281,6 +281,7 @@
     const suffix = video.canPlayType('video/webm') ? '.webm' : '.mp4';
 
     video.loop = false;
+    video.controls = false;
 
     function playNext(video) {
       video.ontimeupdate = (event) => {
@@ -305,7 +306,17 @@
     });
 
     playNext(video);
-    video.play();
+    video.play().catch((e) => {
+      if (e.name === "NotAllowedError") {
+        img = document.createElement('img');
+        img.src = '/poster.jpg';
+        img.id = 'background-video';
+        img.style = video.style;
+        video.parentElement.appendChild(img);
+
+        video.remove();
+      }
+    });
   </script>
 
 
